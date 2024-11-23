@@ -8,7 +8,7 @@ let user;
 function handleReceivedData(data) {
     console.log(data);
     let message = document.querySelector('#message');
-    message.innerHTML = `Hey ${data.Name}, your total balance is ${data.balance}`;
+    message.innerHTML = `Hey ${data.Name}, your total balance is $ ${data.balance}`;
 }
 
 function googleLogin() {
@@ -23,7 +23,8 @@ firebase.auth().signInWithPopup(provider)
                                                         <h3>Update My Balance</h3>
                                                         <input id="inputArea">
                                                         </input>
-                                                        <button
+                                                        <br>
+                                                        <button id="updateButton"  
                                                         onclick="updatePost(event)">
                                                         Update My Balance
                                                         </button>`);
