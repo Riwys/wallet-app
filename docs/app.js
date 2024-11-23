@@ -28,7 +28,10 @@ firebase.auth().signInWithPopup(provider)
                                                         onclick="updatePost(event)">
                                                         Update My Balance
                                                         </button>`);
-
+        document.body.insertAdjacentHTML('beforebegin', `<button id="logoutButton"  
+                                                            onclick="logout()">
+                                                            Log out
+                                                            </button>`);
         //database
         const db = firebase.firestore();
 
@@ -73,6 +76,15 @@ firebase.auth().signInWithPopup(provider)
 
     })
     .catch(console.log)
+}
+
+function logout() {
+    firebase.auth().signOut().then(() => {
+        window.location.assign('./index.html')
+        console.log('logout successful');
+    }).catch((error) => {
+        console.log('some error');
+    });
 }
 
 
